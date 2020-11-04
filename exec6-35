@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+	int A[6] = { 23,31,3,19,54,12 };  
+	int i, j, min, t;
+	for (j = 0; j < 6; j++) printf("%4d", A[j]);
+	printf("\n");
+	
+
+	for (i = 0; i<6 ; i++) {
+		min = i;
+		for (j = i+1 ; j<6; j++) {
+			if (A[min] > A[j]) min = j;
+			t = A[min]; A[min] = A[i]; A[i] = t;
+			printf("i=%d ,", i);
+			printf("j=%d, min<before>=%d ,min<after>=%d", j, i, min);
+			for (int j = 0; j < 6; j++)printf("%4d", A[j]);
+
+			printf("\n");
+			if (j == 5) {
+				printf("第%d個與第%d個交換:", i, min);
+				for (j = 0; j < 6; j++)printf("%4d", A[j]);
+				printf("\n-----------------------------------------\n");
+			}
+		}
+	}
+	system("pause"); return(0);
+}
